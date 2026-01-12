@@ -1,0 +1,59 @@
+{
+  "cursor.general.model": "claude-opus-4-5-20251101",
+  "cursor.aiAssistant.enabled": true,
+  "cursor.aiAssistant.model": "claude-opus-4-5-20251101",
+  "cursor.chat.model": "claude-opus-4-5-20251101",
+  "cursor.autocomplete.enabled": true,
+  "cursor.chat.contextLength": "long",
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.DS_Store": true
+  },
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/*.code-search": true
+  },
+
+  "recommendations": {
+    "extensions": [
+      "anthropic.claude-code",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "GraphQL.vscode-graphql",
+      "prisma.prisma"
+    ]
+  },
+
+  "cursor.aiComments": {
+    "enabled": true,
+    "style": "detailed",
+    "language": "english"
+  },
+
+  "cursor.codeGeneration": {
+    "preferredStyle": "typescript",
+    "includeTypes": true,
+    "addComments": false
+  }
+}

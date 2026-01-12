@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Page",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Page title"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-/]+$",
+      "description": "URL path"
+    },
+    "content": {
+      "type": "string",
+      "description": "Page content (Markdown or HTML)"
+    },
+    "template": {
+      "type": "string",
+      "enum": ["default", "landing", "about", "contact", "custom"],
+      "default": "default"
+    },
+    "parentPage": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to parent Page ID for hierarchy"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published", "archived"],
+      "default": "draft"
+    },
+    "embedding": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "AI-generated vector embedding for semantic search"
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["text", "image", "video", "cta", "form", "custom"]
+          },
+          "content": {
+            "type": "object"
+          }
+        }
+      },
+      "description": "Structured content blocks for page builder"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        },
+        "canonicalUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["title", "content", "status"],
+  "additionalProperties": false
+}

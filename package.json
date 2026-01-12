@@ -1,0 +1,32 @@
+{
+  "name": "ai-native-cms",
+  "version": "1.0.0",
+  "description": "AI-Native Content Management System powered by Claude Opus 4.5",
+  "private": true,
+  "scripts": {
+    "setup": "npm run setup:api && npm run setup:admin && npm run setup:core",
+    "setup:api": "cd api && npm install",
+    "setup:admin": "cd admin-ui && npm install",
+    "setup:core": "cd core && npm install",
+    "dev": "docker-compose up",
+    "dev:build": "docker-compose up --build",
+    "down": "docker-compose down",
+    "clean": "docker-compose down -v",
+    "logs": "docker-compose logs -f",
+    "logs:api": "docker-compose logs -f api",
+    "logs:admin": "docker-compose logs -f admin-ui",
+    "logs:db": "docker-compose logs -f postgres"
+  },
+  "keywords": [
+    "cms",
+    "ai",
+    "claude",
+    "anthropic",
+    "headless-cms",
+    "graphql",
+    "rest-api",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT"
+}

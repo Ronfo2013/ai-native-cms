@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Post",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Post title"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL-friendly identifier"
+    },
+    "content": {
+      "type": "string",
+      "description": "Post content (Markdown or HTML)"
+    },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Short summary for previews"
+    },
+    "author": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Reference to User ID"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published", "archived"],
+      "default": "draft"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Post tags for categorization"
+    },
+    "embedding": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "AI-generated vector embedding for semantic search"
+    },
+    "aiSummary": {
+      "type": "string",
+      "description": "AI-generated summary of the content"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "featuredImage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["title", "content", "author", "status"],
+  "additionalProperties": false
+}
