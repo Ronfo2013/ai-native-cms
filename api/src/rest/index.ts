@@ -4,6 +4,7 @@ import { pagesRouter } from './routes/pages';
 import { usersRouter } from './routes/users';
 import { authRouter } from './routes/auth';
 import { aiRouter } from './routes/ai';
+import { landingPagesRouter } from './routes/landing-pages';
 
 export const restRoutes = Router();
 
@@ -12,3 +13,4 @@ restRoutes.use('/pages', pagesRouter);
 restRoutes.use('/users', usersRouter);
 restRoutes.use('/auth', authRouter);
 restRoutes.use('/ai', aiRouter);
+restRoutes.use('/landing-pages', landingPagesRouter);
