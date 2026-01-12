@@ -1,6 +1,14 @@
 # AI-Native CMS
 
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![Claude Opus 4.5](https://img.shields.io/badge/Claude-Opus%204.5-purple)](https://www.anthropic.com/claude)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+
 A modern, AI-powered Content Management System built with Claude Opus 4.5, featuring automatic content generation, semantic search, RAG (Retrieval-Augmented Generation), and intelligent content suggestions.
+
+[Quick Start](QUICKSTART.md) • [Architecture](ARCHITECTURE.md) • [Contributing](CONTRIBUTING.md) • [Report Bug](https://github.com/Ronfo2013/ai-native-cms/issues)
 
 ## Features
 
