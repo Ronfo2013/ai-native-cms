@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LandingPage",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Internal name for the landing page"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL slug"
+    },
+    "title": {
+      "type": "string",
+      "description": "SEO title"
+    },
+    "description": {
+      "type": "string",
+      "description": "SEO description"
+    },
+    "template": {
+      "type": "string",
+      "enum": ["hero-cta", "saas", "product", "event", "waitlist", "custom"],
+      "default": "hero-cta"
+    },
+    "sections": {
+      "type": "array",
+      "description": "Ordered sections that make up the landing page",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "features",
+              "testimonials",
+              "pricing",
+              "cta",
+              "faq",
+              "contact",
+              "stats",
+              "team",
+              "logo-cloud",
+              "video",
+              "custom"
+            ]
+          },
+          "order": {
+            "type": "number"
+          },
+          "aiGenerated": {
+            "type": "boolean",
+            "default": false
+          },
+          "content": {
+            "type": "object",
+            "description": "Section-specific content"
+          },
+          "style": {
+            "type": "object",
+            "properties": {
+              "background": {
+                "type": "string"
+              },
+              "padding": {
+                "type": "string"
+              },
+              "textColor": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": ["id", "type", "content"]
+      }
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "primaryColor": {
+          "type": "string",
+          "default": "#6366f1"
+        },
+        "secondaryColor": {
+          "type": "string",
+          "default": "#8b5cf6"
+        },
+        "fontFamily": {
+          "type": "string",
+          "default": "Inter"
+        },
+        "borderRadius": {
+          "type": "string",
+          "enum": ["none", "small", "medium", "large"],
+          "default": "medium"
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "metaTitle": {
+          "type": "string"
+        },
+        "metaDescription": {
+          "type": "string"
+        },
+        "ogImage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "analytics": {
+      "type": "object",
+      "properties": {
+        "googleAnalyticsId": {
+          "type": "string"
+        },
+        "facebookPixelId": {
+          "type": "string"
+        },
+        "customScripts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "integrations": {
+      "type": "object",
+      "properties": {
+        "emailProvider": {
+          "type": "string",
+          "enum": ["mailchimp", "sendgrid", "convertkit", "custom"]
+        },
+        "emailListId": {
+          "type": "string"
+        },
+        "webhookUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published", "archived"],
+      "default": "draft"
+    },
+    "publishedUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "customDomain": {
+      "type": "string"
+    },
+    "aiPrompt": {
+      "type": "string",
+      "description": "Original AI prompt used to generate the page"
+    },
+    "views": {
+      "type": "number",
+      "default": 0
+    },
+    "conversions": {
+      "type": "number",
+      "default": 0
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["name", "slug", "template", "sections"]
+}
